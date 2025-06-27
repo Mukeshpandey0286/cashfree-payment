@@ -14,7 +14,7 @@
     <name>payment</name>
     <description>rental payment project for Spring Boot</description>
     <properties>
-        <java.version>21</java.version>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>
