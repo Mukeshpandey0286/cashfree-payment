@@ -1,0 +1,42 @@
+server:
+  port: 8080
+
+spring:
+  # H2 Database for development
+  # datasource:
+  #   url: jdbc:h2:mem:paymentdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+  #   username: sa
+  #   password:
+  #   driver-class-name: org.h2.Driver
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/rental
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+logging:
+  level:
+    com.rental.payment: INFO
+    org.springframework.web: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+cashfree:
+  app-id: ${CASHFREE_APP_ID}
+  secret-key: ${CASHFREE_SECRET_KEY}
+  base-url: ${CASHFREE_BASE_URL}
+  webhook-secret: ${CASHFREE_WEBHOOK_SECRET}
